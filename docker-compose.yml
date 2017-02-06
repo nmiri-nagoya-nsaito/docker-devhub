@@ -1,0 +1,13 @@
+devhub:
+  build: devhub
+  ports:
+   - "3000:3000"
+  links:
+   - mongo_db
+  environment:
+    MONGOLAB_URI: "mongodb://mongo_db:27017/devhub_db"
+  command: "node app.js -p 3000 -d devhub_db -t ${TITLE}"
+mongo_db:
+  image: "mongo"
+  expose:
+   - "27017"
