@@ -6,4 +6,5 @@ RUN apt-get update \
 WORKDIR /
 RUN git clone https://github.com/volpe28v/DevHub.git && cd DevHub && npm install
 ADD wait-for-mongo.sh /root
+RUN echo "Asia/Tokyo" > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 WORKDIR /DevHub
